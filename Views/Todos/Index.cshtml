@@ -4,3 +4,7 @@
 @*todo:call a partial view to display a list of todo items*@
 <h2>What do you need to do?</h2>
 <input type="text" />
+@*include a script that intercepts the enter key and does an AJAX call to get the partial view which is the todo list*@
+@section Scripts {
+    <script src="@Url.Content("~/Scripts/todos.js")"></script>
+}
