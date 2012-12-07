@@ -4,5 +4,5 @@
 @foreach (var todo in Model.Todos)
 {
     @Html.Hidden("Todos[" + i++ + "]", todo)
-    @todo
+    @todo<br />
 }
