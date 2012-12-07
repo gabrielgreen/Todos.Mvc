@@ -8,5 +8,10 @@ namespace Todos.Mvc.Models
     public class TodosVM
     {
         public List<string> Todos { get; set; }
+
+        public TodosVM()
+        {
+            Todos = new List<string>();
+        }
     }
 }
