@@ -6,7 +6,7 @@
     },
     setupFormKeypressHandler: function () {
         me = this;
-        jQuery('form').keypress(function (event) {
+        theForm().keypress(function (event) {
             if (event.which == 13) {
                 event.preventDefault();
                 if (!String.isNullOrWhitespace(me.itemInput().val())) {
@@ -19,7 +19,7 @@
         me = this;
         jQuery.ajax(this.ajaxURL, {
             type: 'POST',
-            data: jQuery('form').serialize(),
+            data: me.theForm().serialize(),
             success: function (data) {
                 me.setItems(data);
                 me.clearInput();
@@ -41,5 +41,8 @@
     },
     todoList: function () {
         return jQuery('#container-todos');
+    },
+    theForm: function () {
+        return jQuery('form');
     }
 });
