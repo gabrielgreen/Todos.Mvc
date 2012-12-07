@@ -7,6 +7,6 @@ namespace Todos.Mvc.Models
 {
     public class TodosVM
     {
-        List<string> Todos { get; set; }
+        public List<string> Todos { get; set; }
     }
 }
