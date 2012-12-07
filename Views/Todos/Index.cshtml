@@ -1,10 +1,17 @@
 ﻿@{
     ViewBag.Title = "Index";
 }
-@*todo:call a partial view to display a list of todo items*@
-<h2>What do you need to do?</h2>
-<input type="text" />
-@*include a script that intercepts the enter key and does an AJAX call to get the partial view which is the todo list*@
+<form>
+    <div id="container-todos">&nbsp;</div>
+    <h2>What do you need to do?</h2>
+    <input type="text" id="input-todo" name="addTodo" class="not-visible" />
+</form>
 @section Scripts {
-    <script src="@Url.Content("~/Scripts/todos.js")"></script>
+    <script>
+        jQuery(document).ready(function () {
+            ui = new TodosUI({
+                addURL: '@Url.Action("Add")'
+            });
+        })
+    </script>
 }
