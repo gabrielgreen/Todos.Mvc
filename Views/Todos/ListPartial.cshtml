@@ -1,0 +1,8 @@
+﻿@model Todos.Mvc.Models.TodosVM
+
+@{ int i = 0; }
+@foreach (var todo in Model.Todos)
+{
+    @Html.Hidden("Todos[" + i++ + "]", todo)
+    @todo
+}
