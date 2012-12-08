@@ -20,6 +20,28 @@
         });
     },
 
+    // Intercepts a click on an item and toggles the completion state
+    // This method is called each time the partial view is displayed
+    setupItemClickHandler: function() {
+        me = this;
+        this.allItems().click(function () {
+
+            // Toggle the visual class to indicate item completion status
+            jQuery(this).toggleClass('is-done');
+
+            // Toggle the hidden value for this item to preserve view state
+            var idNum = this.id.split('-')[1];
+            var hidden = jQuery('#' + 'hidden-item-is-done-' + idNum);
+            if (jQuery(this).hasClass('is-done')) {
+                hidden.val("True");
+            }
+            else {
+                hidden.val("False");
+            }
+
+        });
+    },
+
     // Performs an AJAX POST of serialized form data to an action method 
     // which returns the content of a rendered partial view to replace
     // the HTML of the item list
@@ -67,6 +89,10 @@
 
     theForm: function () {
         return jQuery('form');
+    },
+
+    allItems: function () {
+        return jQuery('.todo-item>span');
     }
 
 });
