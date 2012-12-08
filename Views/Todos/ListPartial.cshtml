@@ -3,6 +3,11 @@
 @{ int i = 0; }
 @foreach (var todo in Model.Todos)
 {
-    @Html.Hidden("Todos[" + i++ + "]", todo)
-    @todo<br />
+    <div class="todo-item">
+        <span id="item-@i" class="@(todo.IsDone ? "is-done" : "")">@todo.Text</span>
+    </div>
+    @Html.Hidden("Todos[" + i + "].Text", todo.Text)
+    @Html.Hidden("Todos[" + i + "].IsDone", todo.IsDone, new { id = "hidden-item-is-done-" + i })
+    i++;
 }
+<script>ui.setupItemClickHandler();</script>
