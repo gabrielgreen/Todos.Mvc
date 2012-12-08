@@ -22,7 +22,7 @@ namespace Todos.Mvc.Controllers
         // POST: /Todos/Add
 
         [HttpPost]
-        public ActionResult Add(List<string> Todos, string addTodo)
+        public ActionResult Add(List<TodoItem> Todos, string addTodo)
         {
             var viewModel = new TodosVM();
 
@@ -33,7 +33,7 @@ namespace Todos.Mvc.Controllers
 
             if (!string.IsNullOrWhiteSpace(addTodo))
             {
-                viewModel.Todos.Add(addTodo);
+                viewModel.Todos.Add(new TodoItem { Text = addTodo });
             }
 
             return PartialView("ListPartial", viewModel);
