@@ -2,3 +2,8 @@
 {
     visibility: hidden;
 }
+
+.todo-item span.is-done
+{
+    background-color: green;
+}
